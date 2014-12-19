@@ -11,7 +11,7 @@ import utils.SparkMLLibUtility
 object Application extends Controller {
 
   def index = Action {
-    Future{SparkMLLibUtility.SparkMLLibExample}
+    Future{SparkSQL.runQuery("select count(*) from %TABLE% where datatime='2014121801'", "20141218","2014121801")}
     Ok(views.html.index(""))
   }
 
