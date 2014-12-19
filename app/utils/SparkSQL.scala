@@ -24,7 +24,7 @@ object SparkSQL {
 
     val sTable = "log_test"
     val sTableComodin = "%TABLE%"
-    logData.regiterTempTable(sTable)
+    logData.registerTempTable(sTable)
 
     
     
