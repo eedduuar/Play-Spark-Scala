@@ -6,7 +6,7 @@ import play.api.mvc._
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits._
 
-import utils.SparkMLLibUtility
+import utils.SparkSQL
 
 object Application extends Controller {
 
