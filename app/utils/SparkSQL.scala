@@ -18,14 +18,16 @@ object SparkSQL {
       .set("spark.logConf", "true")
       .set("spark.driver.host", s"$driverHost")
     val sc = new SparkContext(conf)
-    val logData = sc.jsonFile(logFile)
+    
+    val sqlContext = new SQLContext(sc)
+    val logData = sqlContext.jsonFile(logFile)
 
     val sTable = "log_test"
     val sTableComodin = "%TABLE%"
     logData.regiterTempTable(sTable)
 
     
-    val sqlContext = new SQLContext(sc)
+    
     
     val result = sqlContext.sql(query.replace(sTableComodin,sTable))
     println("Total Rows : "+result.count() )
